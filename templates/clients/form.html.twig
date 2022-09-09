@@ -1,0 +1,28 @@
+<div class="firstPart">
+    <h2 id="ajoutClient">Ajout Client</h2>
+
+    {{ form_start(form) }}
+        <div class="enteteForm">
+            {{ form_row(form.lastname) }}
+            {{ form_row(form.firstname) }}
+        </div>
+        <div class="autreForm">
+            {{ form_row(form.email) }}
+        </div>
+        <div class="selectForm">
+            {{ form_row(form.dateTest) }}
+            {{ form_row(form.appareil) }}
+        </div>
+        <div class="selectForm">
+            {{ form_row(form.perteAuditive) }}
+            {{ form_row(form.deni) }}
+        </div>
+        <div class="selectForm">
+            {{ form_row(form.souhait) }}    
+            {{ form_row(form.remarque) }}
+        </div>
+        <div class="btn_s">
+            <input type="submit" value="Ajouter" class="btn">
+        </div>
+    {{ form_end(form) }}
+</div>

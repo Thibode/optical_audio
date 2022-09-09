@@ -3,5 +3,11 @@
 {% block title 'Optical Center | Client Audio | Potentiel' %}
 
 {% block body %}
-    <h1>Bonjour</h1>
+
+{{ include('clients/form.html.twig') }}
+
+<div class="separationContenu"></div>
+
+{{ include('clients/table.html.twig') }}
+
 {% endblock %}
