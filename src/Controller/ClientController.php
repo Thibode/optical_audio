@@ -13,4 +13,10 @@ class ClientController extends AbstractController
     {
         return $this->render('views/index.html.twig');
     }
+
+    #[Route('/', name: 'app_home')]
+    public function potentielClient(): Response
+    {
+        return $this->render('views/index.html.twig');
+    }
 }
