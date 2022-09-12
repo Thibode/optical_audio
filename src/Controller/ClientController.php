@@ -10,21 +10,23 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\PotentielClient;
 use App\Form\FormPotentielClientType;
 use App\Repository\PotentielClientRepository;
+use Doctrine\Persistence\ManagerRegistry;
 
 class ClientController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
-    public function index(): Response
+    #[Route('/', name:'app_home', methods:['GET'])]
+    
+    public function index()
     {
         return $this->render('views/index.html.twig');
     }
 
     #[Route('/', name: 'app_home')]
-    public function potentielClient(Request $request, EntityManagerInterface $em): Response
+    public function potentielClient(Request $request, EntityManagerInterface $em, ManagerRegistry $doctrine): Response
     {
         $potentielClient = new PotentielClient;
         $form = $this->createForm(FormPotentielClientType::class, $potentielClient);
-
+        $clients = $doctrine->getRepository(PotentielClient::class)->findAll();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
@@ -33,11 +35,17 @@ class ClientController extends AbstractController
         }   
 
         return $this->render('views/index.html.twig', [
-            'form' => $form->createView()
+            'clients' => $clients,
+            'form' => $form->createView(),
         ]);
     }
-    public function afficheClient(PotentielClientRepository $repo): Response
+
+    public function showPotentielClient(ManagerRegistry $doctrine, int $id): Response
     {
-        return $this->render('cliens/table.html.twig',compact('clients'));
+        $clients = $doctrine->getRepository(PotentielClient::class)->find($id);
+
+        return $this->render('clients/table.html.twig', [
+            
+        ]);
     }
 }

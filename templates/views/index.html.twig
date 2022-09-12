@@ -1,13 +1,12 @@
 {% extends 'layouts/base.html.twig' %}
-
-{% block title 'Optical Center | Client Audio | Potentiel' %}
-
 {% block body %}
 
-{{ include('clients/form.html.twig') }}
+    {{ include('clients/form.html.twig') }}
 
-<div class="separationContenu"></div>
+    <div class="separationContenu"></div>
 
-{{ include('clients/table.html.twig') }}
+    <div class="tableClient">
+        {{ include('clients/table.html.twig') }}
+    </div>
 
 {% endblock %}

@@ -46,6 +46,9 @@ class PotentielClient
     #[ORM\Column(length: 255)]
     private ?string $remarque = null;
 
+    #[ORM\ManyToOne(inversedBy: 'opticien')]
+    private ?Opticiens $opticien = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -155,6 +158,18 @@ class PotentielClient
     public function setRemarque(string $remarque): self
     {
         $this->remarque = $remarque;
+
+        return $this;
+    }
+
+    public function getOpticien(): ?Opticiens
+    {
+        return $this->opticien;
+    }
+
+    public function setOpticien(?Opticiens $opticien): self
+    {
+        $this->opticien = $opticien;
 
         return $this;
     }

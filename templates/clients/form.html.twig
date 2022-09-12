@@ -6,8 +6,9 @@
             {{ form_row(form.lastname) }}
             {{ form_row(form.firstname) }}
         </div>
-        <div class="autreForm">
+        <div class="selectForm">
             {{ form_row(form.email) }}
+            {{ form_row(form.opticien)}}
         </div>
         <div class="selectForm">
             {{ form_row(form.dateTest) }}
@@ -19,10 +20,12 @@
         </div>
         <div class="selectForm">
             {{ form_row(form.souhait) }}    
+        </div>
+        <div class="autreForm">
             {{ form_row(form.remarque) }}
         </div>
-        <div class="btn_s">
-            <input type="submit" value="Ajouter" class="btn">
+        <div class="btn_s fill">
+            <input type="submit" value="Ajout Client" class="btn">
         </div>
     {{ form_end(form) }}
-</div>
+</div> 

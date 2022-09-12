@@ -1,12 +1,40 @@
-<table>
-    <tr>
-        <td>Nom</td>
-        <td>Prénom</td>
-    </tr>
-    {% for client in clients %}
-        <tr>
-            <td>{{ client.lastname }}</td>
-            <td>{{ client.firstname }}</td>
-        </tr>
-    {% endfor %}
-</table>
+{% if clients != null %}
+
+    <table id="tableClient">
+        <th>
+            <td>Nom</td>
+            <td>Prénom</td>
+            <td>Adresse mail</td>
+            <td>Opticien</td>
+            <td>Date Test</td>
+            <td>Appareillé</td>
+            <td>Perte</td>
+            <td>Deni</td>
+            <td>Souhait</td>
+            <td>Remarque<td>
+        </th>
+
+        {% for client in clients %}
+
+            <tr>
+                <td>{{ client.firstname }}</td>
+                <td>{{ client.lastname }}</td>
+                <td>{{ client.email }}</td>
+                <td>{{ client.opticien }}</td>
+                <td>{{ client.dateTest }}</td>
+                <td>{{ client.appareil }}</td>
+                <td>{{ client.perteAuditive }}</td>
+                <td>{{ client.deni }}</td>
+                <td>{{ client.souhait }}</td>
+                <td>{{ client.remarque }}</td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+    
+    {% else %}
+
+    <h2>Il n'y a pas encore de client potentiel</h2>
+
+{% endif %}

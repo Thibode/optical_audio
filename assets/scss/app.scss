@@ -3,9 +3,14 @@
 
 @import 'shared/variables.scss';
 
-
+/*==============================*/
+//     CSS | Base parameters    //
+/*==============================*/
+*{
+    margin: 0;
+    padding: 0;
+}
 body{
-    box-sizing: border-box;
     background-color: #fafafa;   
 }
 /*==========================*/
@@ -14,20 +19,54 @@ body{
 
 //Nav//
 .container-nav-list{
-    width: 35%;
-    height: 100px;
+    width: 50%;
+    height: 200px;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     align-content: center;
+
     .nav-item{
         list-style: none;   
         font-family: $primary-font;
     }
-    .nav-list{
+
+    a:hover{
+        color: #fafafa;
+        transform: 1.5s, ease-in-out;
+        font-weight: bold;
+    }
+
+    .nav-list, .fill {
+        text-decoration: none;
+        color: #000;
+        font-size: 16px;
+        font-weight: 300;
+        padding: 13px 50px 13px;
+        outline: 0;
+        border: 1px solid black;
         cursor: pointer;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    .fill::after {
+    content: "";
+        background-color: #da1d21;
+        width: 100%;
+        z-index: -1;
+        position: absolute;
+        height: 100%;
+        top: 7px;
+        left: 7px;
+        transition: 0.2s;
+    }
+    
+    .fill:hover::after {
+        top: 0px;
+        left: 0px;
     }
 }
 //En-tête//
@@ -75,11 +114,11 @@ body{
 }
   
 /*===============================*/
-// Styles Formulaire d'ajout client
+//   Styles Formulaire d'ajout   //
 /*===============================*/
 
 //Titre | Block | Form//
-.firstPart{
+.firstPart, .thirdPart{
     margin: 0 auto;
     width: 33%;
     font-family: $primary-font;
@@ -103,12 +142,54 @@ body{
         margin: 15px;
     }
     .btn_s{
+        margin: 40px auto;
         text-align: center;
+        width: 250px;
     }
+
     .btn{
-        width: 95%;
+        border: none;
+        width: 250px;
+        background-color: transparent;
         text-align: center;
+        cursor: pointer;
         height: 30px;
+    }
+
+    .btn:hover{
+        color: #fafafa;
+        transform: 1.5s, ease-in-out;
+        font-weight: bold;
+    }
+
+    .btn_s, .fill {
+        text-decoration: none;
+        color: #000;
+        font-size: 16px;
+        font-weight: 300;
+        padding: 13px 50px 13px;
+        outline: 0;
+        border: 1px solid black;
+        cursor: pointer;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    .fill::after {
+    content: "";
+        background-color: #da1d21;
+        width: 100%;
+        z-index: -1;
+        position: absolute;
+        height: 100%;
+        top: 7px;
+        left: 7px;
+        transition: 0.2s;
+    }
+    
+    .fill:hover::after {
+        top: 0px;
+        left: 0px;
     }
 }
 
@@ -118,13 +199,25 @@ body{
     margin-top: 100px;
     margin-bottom: 200px;
     width: 100%;
-    height: 220px;
-    background: linear-gradient(-90deg, rgba(209,29,29,1) 0%, rgba(255,96,96,1) 52%, rgba(250,250,250,1) 100%);
+    height: 80px;
+    background: linear-gradient(-90deg, rgb(82, 79, 79) 0%, rgb(163, 160, 160) 52%, rgba(250,250,250,1) 100%);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
+/*===============================*/
+// Styles tableau potentiel client
+/*===============================*/
 
-// Footer 
+.tableClient{
+    width: 100%;
+    height: 500px;
+}
+
+/*==========================*/
+// Styles Footer 
+/*==========================*/
 .container-footer{
+    margin-top: 200px;
+    margin-bottom: 50px;
     position: relative;
     bottom: 0;
     left: 43.5%;

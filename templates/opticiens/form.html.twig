@@ -1,0 +1,19 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}Ajout Opticien{% endblock %}
+
+{% block body %}
+    <div class="thirdPart">
+        <h2 id="ajoutOpticien">Ajout Opticien</h2>
+
+        {{ form_start(formOpticien) }}
+            <div class="enteteForm">
+                {{ form_row(formOpticien.lastname) }}
+                {{ form_row(formOpticien.firstname) }}
+            </div>
+            <div class="btn_s fill">
+                <input type="submit" value="Ajouter" class="btn">
+            </div>
+        {{ form_end(formOpticien) }}
+    </div>
+{% endblock %}
