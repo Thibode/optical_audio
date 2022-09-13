@@ -11,10 +11,11 @@
         {% endblock %}
     </head>
     <body>
+    {% if app.user %}
         {{ include('layouts/partials/flash_messages.html.twig') }}
 
         {{ include('layouts/partials/nav.html.twig') }}
-        
+    {% endif %}    
         <main role="main" class="container">
             {% block body %}{% endblock %}
         </main>
