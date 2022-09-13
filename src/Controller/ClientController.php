@@ -12,6 +12,7 @@ use App\Form\FormPotentielClientType;
 use App\Repository\PotentielClientRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+
 class ClientController extends AbstractController
 {
     #[Route('/', name:'app_home', methods:['GET'])]
@@ -32,6 +33,10 @@ class ClientController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()){
             $em->persist($potentielClient);
             $em->flush();
+
+            $this->addFlash('success', 'Client potentiel ajouté avec succès !');
+            return $this->redirectToRoute('app_home');
+
         }   
 
         return $this->render('views/index.html.twig', [
@@ -40,12 +45,44 @@ class ClientController extends AbstractController
         ]);
     }
 
-    public function showPotentielClient(ManagerRegistry $doctrine, int $id): Response
+    #[Route('/potentielClient/{id<[0-9]+>}/edit', name:'app_home_edit', methods:['GET', 'PUT'])]
+    public function edit(Request $request, EntityManagerInterface $em, int $id): Response
     {
-        $clients = $doctrine->getRepository(PotentielClient::class)->find($id);
+        $client = $em->getRepository(PotentielClient::class)->find($id);
 
-        return $this->render('clients/table.html.twig', [
-            
+        $form = $this->createForm(FormPotentielClientType::class, $client, [
+            'method' => 'PUT'
         ]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $em->persist($client);
+            $em->flush();
+
+            $this->addFlash('success', 'Modification réalisée avec succès !');
+            return $this->redirectToRoute('app_home');
+
+        }   
+
+        return $this->render('clients/edit.html.twig', [
+            'clients' => $client,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/potentielClient/{id<[0-9]+>}/delete', name:'app_home_delete', methods:['GET', 'DELETE'])]
+    public function delete(EntityManagerInterface $em, int $id): Response
+    {
+        $client = $em->getRepository(PotentielClient::class)->find($id);
+        if($client){
+            $em->remove($client);
+            $em->flush();
+            $this->addFlash('info', 'Potentiel client supprimé !');
+            
+            return $this->redirectToRoute('app_home');
+        }
+
+ 
+        return $this->redirectToRoute('app_home');
     }
 }

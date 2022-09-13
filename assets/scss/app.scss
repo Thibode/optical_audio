@@ -12,7 +12,27 @@
 }
 body{
     background-color: #fafafa;   
+    background-image: url(/public/images/white-paper-texture.jpg);
 }
+.alert{
+    font-family: $second-font;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+
+    &.alert-success{
+    background-color: #1ab53b;
+    }
+    &.alert-error{
+    background-color: #ec2404;
+    }
+    &.alert-info{
+    background-color: #044aec;
+    }
+}
+
 /*==========================*/
 // Styles Navigation | En-tête
 /*==========================*/
@@ -47,6 +67,7 @@ body{
         padding: 13px 50px 13px;
         outline: 0;
         border: 1px solid black;
+        box-shadow: 13px 16px 28px 7px rgba(0,0,0,0.1);
         cursor: pointer;
         position: relative;
         background-color: rgba(0, 0, 0, 0);
@@ -55,6 +76,7 @@ body{
     .fill::after {
     content: "";
         background-color: #da1d21;
+        box-shadow: 13px 16px 28px 7px rgba(0,0,0,0.1);
         width: 100%;
         z-index: -1;
         position: absolute;
@@ -118,13 +140,21 @@ body{
 /*===============================*/
 
 //Titre | Block | Form//
+
 .firstPart, .thirdPart{
+    background-color: #fafafa;
+    opacity: .99;
+    box-shadow: 13px 16px 28px 7px rgba(0,0,0,0.1);
+    padding: 50px;
     margin: 0 auto;
     width: 33%;
     font-family: $primary-font;
     h2{
         text-align: center;
         margin-bottom: 50px;
+    }
+    form{
+        z-index: 1;
     }
     .enteteForm{
         display: flex;
@@ -142,7 +172,7 @@ body{
         margin: 15px;
     }
     .btn_s{
-        margin: 40px auto;
+        margin: 80px auto 20px;
         text-align: center;
         width: 250px;
     }
@@ -173,11 +203,13 @@ body{
         cursor: pointer;
         position: relative;
         background-color: rgba(0, 0, 0, 0);
+        box-shadow: 13px 16px 28px 7px rgba(0,0,0,0.1);
     }
 
     .fill::after {
     content: "";
         background-color: #da1d21;
+        box-shadow: 13px 16px 28px 7px rgba(0,0,0,0.1);
         width: 100%;
         z-index: -1;
         position: absolute;
@@ -197,7 +229,7 @@ body{
 
 .separationContenu{
     margin-top: 100px;
-    margin-bottom: 200px;
+    margin-bottom: 100px;
     width: 100%;
     height: 80px;
     background: linear-gradient(-90deg, rgb(82, 79, 79) 0%, rgb(163, 160, 160) 52%, rgba(250,250,250,1) 100%);
@@ -207,16 +239,155 @@ body{
 // Styles tableau potentiel client
 /*===============================*/
 
-.tableClient{
-    width: 100%;
-    height: 500px;
+.secondPart{
+    margin: 0 auto;
+    width: 75%;
+    font-family: $primary-font;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2{
+        text-align: center;
+        margin-bottom: 100px;
+    }
+    .container-table {
+        text-align: center;
+        background-color: #fafafa;
+        opacity: .99;
+        box-shadow: 13px 16px 28px 7px rgba(0,0,0,0.1);
+    }
+    #tableClient{
+        border-collapse: collapse;
+    }
+    #tableClient td, #tableClient th{
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    #tableClient tr:hover {
+        background-color: #ddd;
+    }
+    #tableClient th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #a09f9f;
+        color: white;
+    }
 }
 
+.noTable{
+    margin: 100px;
+    font-family: $primary-font;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: #da1d21;
+}
+
+/*===============================*/
+// Edit potentiel client
+/*===============================*/
+
+.container-form{
+    background-color: #fafafa;
+    opacity: .99;
+    box-shadow: 13px 16px 28px 7px rgba(0,0,0,0.1);
+    padding: 50px;
+    margin: 0 auto;
+    width: 33%;
+    font-family: $primary-font;
+    h2{
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    form{
+        z-index: 1;
+    }
+    .enteteForm{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 15px;
+    }
+    .autreForm{
+        margin: 15px;
+    }
+    .selectForm{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 15px;
+    }
+
+    .btn_group{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .btn_s{
+        margin: 80px auto 20px;
+        text-align: center;
+        width: 150px;
+    }
+
+    .btn, a{
+        text-decoration: none;
+        color: #000;
+        border: none;
+        width: 150px;
+        background-color: transparent;
+        text-align: center;
+        cursor: pointer;
+        height: 30px;
+    }
+
+    .btn:hover{
+        color: #fafafa;
+        transform: 1.5s, ease-in-out;
+        font-weight: bold;
+    }
+
+    .btn_s, .fill {
+        text-decoration: none;
+        color: #000;
+        font-size: 16px;
+        font-weight: 300;
+        padding: 13px 50px 13px;
+        outline: 0;
+        border: 1px solid black;
+        cursor: pointer;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0);
+        box-shadow: 13px 16px 28px 7px rgba(0,0,0,0.1);
+    }
+
+    .fill::after {
+    content: "";
+        background-color: #da1d21;
+        box-shadow: 13px 16px 28px 7px rgba(0,0,0,0.1);
+        width: 100%;
+        z-index: -1;
+        position: absolute;
+        height: 100%;
+        top: 7px;
+        left: 7px;
+        transition: 0.2s;
+    }
+    
+    .fill:hover::after {
+        top: 0px;
+        left: 0px;
+    }
+}
+.btn_home{
+    text-align: center;
+    margin: 80px;
+}
 /*==========================*/
 // Styles Footer 
 /*==========================*/
 .container-footer{
-    margin-top: 200px;
+    margin-top: 100px;
     margin-bottom: 50px;
     position: relative;
     bottom: 0;

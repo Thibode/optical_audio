@@ -1,0 +1,40 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title 'Modifier informations Client' %}
+
+{% block body %}
+    <div class="container-form">
+        <h2>Modifier informations Client</h2>
+                
+        {{ form_start(form) }}
+            <div class="enteteForm">
+                {{ form_row(form.lastname) }}
+                {{ form_row(form.firstname) }}
+            </div>
+            <div class="selectForm">
+                {{ form_row(form.email) }}
+                {{ form_row(form.opticien)}}
+            </div>
+            <div class="selectForm">
+                {{ form_row(form.dateTest) }}
+                {{ form_row(form.appareil) }}
+            </div>
+            <div class="selectForm">
+                {{ form_row(form.perteAuditive) }}
+                {{ form_row(form.deni) }}
+            </div>
+            <div class="selectForm">
+                {{ form_row(form.souhait) }}    
+            </div>
+            <div class="autreForm">
+                {{ form_row(form.remarque) }}
+            </div>
+            <div class="btn_s fill">
+                <input type="submit" value="Modifier" class="btn">
+            </div>
+        {{ form_end(form) }}
+        </div> 
+<div class="btn_home">
+    <a href="{{ path('app_home') }}" class="btn"><img src="/images/icons8-accueil-50.png"></a>
+</div>
+{% endblock %}

@@ -1,40 +1,55 @@
-{% if clients != null %}
+<div class="secondPart">
+    {% if clients != null %}
+    <h2>Tableau récapitulatif</h2>
 
-    <table id="tableClient">
-        <th>
-            <td>Nom</td>
-            <td>Prénom</td>
-            <td>Adresse mail</td>
-            <td>Opticien</td>
-            <td>Date Test</td>
-            <td>Appareillé</td>
-            <td>Perte</td>
-            <td>Deni</td>
-            <td>Souhait</td>
-            <td>Remarque<td>
-        </th>
+    <div class="container-table">
+        <table id="tableClient">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Adresse mail</th>
+                    <th>Opticien</th>
+                    <th>Date Test</th>
+                    <th>Appareillé</th>
+                    <th>Perte</th>
+                    <th>Déni</th>
+                    <th>Souhait</th>
+                    <th>Remarque</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            {% for client in clients %}
+            <tbody>
+                <tr>
+                    <td>{{ client.firstname }}</td>
+                    <td>{{ client.lastname }}</td>
+                    <td>{{ client.email }}</td>
+                    <td>{{ client.opticien }}</td>
+                    <td>{{ client.dateTest|date('d/m/Y') }}</td>
+                    <td>{{ client.appareil }}</td>
+                    <td>{{ client.perteAuditive }}</td>
+                    <td>{{ client.deni }}</td>
+                    <td>{{ client.souhait }}</td>
+                    <td>{{ client.remarque }}</td>
+                    <td><a href="#" onclick="event.preventDefault(); confirm('Etes-vous sûr ?') &&
+                        document.getElementById('js-client-delete-form').submit();" class="btn-table"><img src="/images/icons8-trash-can-50.png" style="width: 40px; heigth: auto;"></a>
+                        <form id="js-client-delete-form" action="{{ path('app_home_delete', {'id': client.id}) }}" method="DELETE" style="display:none">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                    <td><a href="{{ path('app_home_edit', {'id': client.id}) }}"><img src="/images/icons8-edit-50.png" style="width: 40px; heigth: auto;"></a>
+                </tr>
+            </tbody>
+            {% endfor %}
 
-        {% for client in clients %}
+        </table>
+    </div>
+        {% else %}
 
-            <tr>
-                <td>{{ client.firstname }}</td>
-                <td>{{ client.lastname }}</td>
-                <td>{{ client.email }}</td>
-                <td>{{ client.opticien }}</td>
-                <td>{{ client.dateTest }}</td>
-                <td>{{ client.appareil }}</td>
-                <td>{{ client.perteAuditive }}</td>
-                <td>{{ client.deni }}</td>
-                <td>{{ client.souhait }}</td>
-                <td>{{ client.remarque }}</td>
-            </tr>
+        <h3 class="noTable">Il n'y a pas encore de client potentiel</h3>
 
-        {% endfor %}
-
-    </table>
-    
-    {% else %}
-
-    <h2>Il n'y a pas encore de client potentiel</h2>
-
-{% endif %}
+    {% endif %}
+</div>
