@@ -25,6 +25,8 @@ class OpticienController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()){
             $em->persist($newOpticien);
             $em->flush();
+
+            return $this->redirectToRoute('app_register_opticien');
         }   
         
         return $this->render('opticiens/form.html.twig', [

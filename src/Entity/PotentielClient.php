@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\PotentielClientRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Ambta\DoctrineEncryptBundle\Configuration\Encrypted;
 
 #[ORM\Table(name: 'clients')]
 #[ORM\Entity(repositoryClass: PotentielClientRepository::class)]
@@ -20,34 +21,46 @@ class PotentielClient
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Encrypted]
     private ?string $lastname = null;
 
     #[ORM\Column(length: 255)]
+    #[Encrypted]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 255)]
+    #[Encrypted]
     private ?string $email = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateTest = null;
 
     #[ORM\Column(length: 255)]
+    #[Encrypted]
     private ?string $appareil = null;
 
     #[ORM\Column(length: 255)]
+    #[Encrypted]
     private ?string $perteAuditive = null;
 
     #[ORM\Column(length: 255)]
+    #[Encrypted]
     private ?string $Deni = null;
 
     #[ORM\Column(length: 255)]
+    #[Encrypted]
     private ?string $souhait = null;
 
     #[ORM\Column(length: 255)]
+    #[Encrypted]
     private ?string $remarque = null;
 
     #[ORM\ManyToOne(inversedBy: 'opticien')]
     private ?Opticiens $opticien = null;
+
+    #[ORM\Column(length: 255)]
+    #[Encrypted]
+    private ?string $phone = null;
 
     public function getId(): ?int
     {
@@ -170,6 +183,18 @@ class PotentielClient
     public function setOpticien(?Opticiens $opticien): self
     {
         $this->opticien = $opticien;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(string $phone): self
+    {
+        $this->phone = $phone;
 
         return $this;
     }

@@ -7,33 +7,39 @@
         <h2>Modifier informations Client</h2>
                 
         {{ form_start(form) }}
-            <div class="enteteForm">
-                {{ form_row(form.lastname) }}
-                {{ form_row(form.firstname) }}
-            </div>
-            <div class="selectForm">
-                {{ form_row(form.email) }}
-                {{ form_row(form.opticien)}}
-            </div>
-            <div class="selectForm">
-                {{ form_row(form.dateTest) }}
-                {{ form_row(form.appareil) }}
-            </div>
-            <div class="selectForm">
-                {{ form_row(form.perteAuditive) }}
-                {{ form_row(form.deni) }}
-            </div>
-            <div class="selectForm">
-                {{ form_row(form.souhait) }}    
+            <div class="form-position">
+                <div class="col-form-left">
+                    <div>
+                        {{ form_label(form.lastname, 'Nom') }}
+                        {{ form_widget(form.lastname) }}
+                    </div>
+                    {{ form_row(form.email) }}
+                    {{ form_row(form.dateTest) }}
+                    {{ form_row(form.perteAuditive) }}
+                    {{ form_row(form.souhait) }} 
+                </div>
+                <div class="col-form-right">
+                    <div>
+                        {{ form_label(form.firstname, 'Prénom') }}
+                        {{ form_widget(form.firstname) }}
+                    </div>
+                    <div>
+                    {{ form_label(form.phone, 'Téléphone') }}
+                    {{ form_widget(form.phone) }}
+                    </div>
+                    {{ form_row(form.opticien) }}
+                    {{ form_row(form.appareil) }}
+                    {{ form_row(form.deni) }}
+                </div>
             </div>
             <div class="autreForm">
                 {{ form_row(form.remarque) }}
             </div>
             <div class="btn_s fill">
-                <input type="submit" value="Modifier" class="btn">
+                <input type="submit" value="Modifier informations" class="btn" formnovalidate>
             </div>
         {{ form_end(form) }}
-        </div> 
+
 <div class="btn_home">
     <a href="{{ path('app_home') }}" class="btn"><img src="/images/icons8-accueil-50.png"></a>
 </div>

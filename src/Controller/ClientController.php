@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\PotentielClient;
 use App\Form\FormPotentielClientType;
-use App\Repository\PotentielClientRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 

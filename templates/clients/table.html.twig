@@ -6,11 +6,12 @@
         <table id="tableClient">
             <thead>
                 <tr>
-                    <th>Nom</th>
+                    <th>Nom<img src="/images/icons8-filter-50.png" id="filtreName" class="filtreImg"></th>
                     <th>Prénom</th>
                     <th>Adresse mail</th>
-                    <th>Opticien</th>
-                    <th>Date Test</th>
+                    <th>Téléphone</th>
+                    <th>Opticien<img src="/images/icons8-filter-50.png" id="filtreOpticien" class="filtreImg"> </th>
+                    <th>Date Test<img src="/images/icons8-filter-50.png" id="filtreDate" class="filtreImg"></th>
                     <th>Appareillé</th>
                     <th>Perte</th>
                     <th>Déni</th>
@@ -26,6 +27,7 @@
                     <td>{{ client.lastname }}</td>
                     <td>{{ client.firstname }}</td>
                     <td>{{ client.email }}</td>
+                    <td>{{ client.phone }}</td>
                     <td>{{ client.opticien }}</td>
                     <td>{{ client.dateTest|date('d/m/Y') }}</td>
                     <td>{{ client.appareil }}</td>
@@ -46,6 +48,9 @@
             {% endfor %}
 
         </table>
+        <div class="haut-de-page">
+            <a href="{{ path('app_home') }}"><img src="/images/icons8-flèche-pointant-vers-la-gauche-100.png"></a>
+        </div>    
     </div>
         {% else %}
 

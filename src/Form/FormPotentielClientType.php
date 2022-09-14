@@ -21,6 +21,7 @@ class FormPotentielClientType extends AbstractType
             ->add('lastname', TextType::class)
             ->add('firstname', TextType::class)
             ->add('email', TextType::class)
+            ->add('phone', TextType::class)
             ->add('opticien',EntityType::class, [
                 'class' => Opticiens::class,
             ])
