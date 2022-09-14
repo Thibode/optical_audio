@@ -23,8 +23,8 @@
             {% for client in clients %}
             <tbody>
                 <tr>
-                    <td>{{ client.firstname }}</td>
                     <td>{{ client.lastname }}</td>
+                    <td>{{ client.firstname }}</td>
                     <td>{{ client.email }}</td>
                     <td>{{ client.opticien }}</td>
                     <td>{{ client.dateTest|date('d/m/Y') }}</td>
@@ -34,13 +34,13 @@
                     <td>{{ client.souhait }}</td>
                     <td>{{ client.remarque }}</td>
                     <td><a href="#" onclick="event.preventDefault(); confirm('Etes-vous sûr ?') &&
-                        document.getElementById('js-client-delete-form').submit();" class="btn-table"><img src="/images/icons8-trash-can-50.png" style="width: 40px; heigth: auto;"></a>
+                        document.getElementById('js-client-delete-form').submit();" class="btn-table"><img src="/images/icons8-trash-can-50.png" style="width: 40px; heigth: auto;" alt="Supprimer"></a>
                         <form id="js-client-delete-form" action="{{ path('app_home_delete', {'id': client.id}) }}" method="DELETE" style="display:none">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="submit" value="Delete">
                         </form>
                     </td>
-                    <td><a href="{{ path('app_home_edit', {'id': client.id}) }}"><img src="/images/icons8-edit-50.png" style="width: 40px; heigth: auto;"></a>
+                    <td><a href="{{ path('app_home_edit', {'id': client.id}) }}"><img src="/images/icons8-edit-50.png" style="width: 40px; heigth: auto;" alt="Modifier"></a>
                 </tr>
             </tbody>
             {% endfor %}
@@ -49,7 +49,7 @@
     </div>
         {% else %}
 
-        <h3 class="noTable">Il n'y a pas encore de client potentiel</h3>
+        <h3 class="noTable" id="tableClient">Il n'y a pas encore de client potentiel</h3>
 
     {% endif %}
 </div>

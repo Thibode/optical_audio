@@ -7,9 +7,15 @@
         <h2 id="ajoutOpticien">Ajout Opticien</h2>
 
         {{ form_start(formOpticien) }}
-            <div class="enteteForm">
-                {{ form_row(formOpticien.lastname) }}
-                {{ form_row(formOpticien.firstname) }}
+            <div class="form-position-opt">
+            <div>
+                {{ form_label(formOpticien.lastname, 'Nom') }}
+                {{ form_widget(formOpticien.lastname) }}
+            </div>
+            <div>
+                {{ form_label(formOpticien.firstname, 'Prénom') }}
+                {{ form_widget(formOpticien.firstname) }}
+            </div>
             </div>
             <div class="btn_s fill">
                 <input type="submit" value="Ajouter" class="btn">

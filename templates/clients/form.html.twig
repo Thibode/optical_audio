@@ -2,25 +2,27 @@
     <h2 id="ajoutClient">Ajout Client</h2>
 
     {{ form_start(form) }}
-        <div class="enteteForm">
-            {{ form_row(form.lastname) }}
-            {{ form_row(form.firstname) }}
-        </div>
-        <div class="selectForm">
+    <div class="form-position">
+        <div class="col-form-left">
+            <div>
+                {{ form_label(form.lastname, 'Nom') }}
+                {{ form_widget(form.lastname) }}
+            </div>
             {{ form_row(form.email) }}
-            {{ form_row(form.opticien)}}
-        </div>
-        <div class="selectForm">
             {{ form_row(form.dateTest) }}
-            {{ form_row(form.appareil) }}
-        </div>
-        <div class="selectForm">
             {{ form_row(form.perteAuditive) }}
+            {{ form_row(form.souhait) }} 
+        </div>
+        <div class="col-form-right">
+            <div>
+                {{ form_label(form.firstname, 'Prénom') }}
+                {{ form_widget(form.firstname) }}
+            </div>
+            {{ form_row(form.opticien) }}
+            {{ form_row(form.appareil) }}
             {{ form_row(form.deni) }}
         </div>
-        <div class="selectForm">
-            {{ form_row(form.souhait) }}    
-        </div>
+    </div>
         <div class="autreForm">
             {{ form_row(form.remarque) }}
         </div>

@@ -23,13 +23,13 @@ body{
     text-align: center;
 
     &.alert-success{
-    background-color: #1ab53b;
+    background-color: #379c4d;
     }
     &.alert-error{
-    background-color: #ec2404;
+    background-color: #da1d21;
     }
     &.alert-info{
-    background-color: #044aec;
+    background-color: #557ad1;
     }
 }
 
@@ -37,6 +37,21 @@ body{
 // Styles Navigation | En-tête
 /*==========================*/
 
+//Log-out//
+.container-nav{
+    a img{
+        position: absolute;
+        right: 0;
+        width: 80px; 
+        height: auto;
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+    a img:hover{
+        transform: scale(1.1);
+        transition: all .5s ease-in-out;
+    }
+}
 //Nav//
 .container-nav-list{
     width: 50%;
@@ -156,21 +171,33 @@ body{
     form{
         z-index: 1;
     }
-    .enteteForm{
-        display: flex;
+    .form-position{
+        display:flex;
         flex-direction: row;
-        justify-content: space-between;
-        margin: 15px;
+        justify-content: space-around;
+        height: 220px;
     }
+    .form-position-opt{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .col-form-left{
+        margin-top: 11px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .col-form-right{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    
     .autreForm{
         margin: 15px;
     }
-    .selectForm{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin: 15px;
-    }
+    
     .btn_s{
         margin: 80px auto 20px;
         text-align: center;
