@@ -7,6 +7,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Ambta\DoctrineEncryptBundle\Configuration\Encrypted;
 
+
 #[ORM\Table(name: 'clients')]
 #[ORM\Entity(repositoryClass: PotentielClientRepository::class)]
 class PotentielClient
@@ -21,11 +22,9 @@ class PotentielClient
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Encrypted]
     private ?string $lastname = null;
 
     #[ORM\Column(length: 255)]
-    #[Encrypted]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 255)]

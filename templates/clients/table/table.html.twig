@@ -1,0 +1,47 @@
+<div id="client-table">
+            <table id="tableClient">
+                <thead>
+                    <tr>
+                        <th>Nom<!--<img src="/images/icons8-filter-50.png" id="filtreName" class="filtreImg">--></th>
+                        <th>Prénom</th>
+                        <th>Adresse mail</th>
+                        <th>Téléphone</th>
+                        <th>Opticien<!--<img src="/images/icons8-filter-50.png" id="filtreOpticien" class="filtreImg">--></th>
+                        <th>Date Test<!--<img src="/images/icons8-filter-50.png" id="filtreDate" class="filtreImg">--></th>
+                        <th>Appareillé</th>
+                        <th>Perte</th>
+                        <th>Déni</th>
+                        <th>Souhait</th>
+                        <th>Remarque</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                {% for client in clients %}
+                <tbody>
+                    <tr>
+                        <td>{{ client.lastname }}</td>
+                        <td>{{ client.firstname }}</td>
+                        <td>{{ client.email }}</td>
+                        <td>{{ client.phone }}</td>
+                        <td>{{ client.opticien }}</td>
+                        <td>{{ client.dateTest|date('d/m/Y') }}</td>
+                        <td>{{ client.appareil }}</td>
+                        <td>{{ client.perteAuditive }}</td>
+                        <td>{{ client.deni }}</td>
+                        <td>{{ client.souhait }}</td>
+                        <td>{{ client.remarque }}</td>
+                        <td><a href="#" onclick="event.preventDefault(); confirm('Etes-vous sûr ?') &&
+                            document.getElementById('js-client-delete-form').submit();" class="btn-table"><img src="/images/icons8-trash-can-50.png" style="width: 40px; heigth: auto;" alt="Supprimer"></a>
+                            <form id="js-client-delete-form" action="{{ path('app_home_delete', {'id': client.id}) }}" method="DELETE" style="display:none">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="submit" value="Delete">
+                            </form>
+                        </td>
+                        <td><a href="{{ path('app_home_edit', {'id': client.id}) }}"><img src="/images/icons8-edit-50.png" style="width: 40px; heigth: auto;" alt="Modifier"></a>
+                    </tr>
+                </tbody>
+                {% endfor %}
+
+            </table>
+        </div>

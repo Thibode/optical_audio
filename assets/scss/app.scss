@@ -283,9 +283,17 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    #motCle{
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        height: 40px;
+        width: 250px;
+    }
     h2{
         text-align: center;
-        margin-bottom: 100px;
+        margin-bottom: 80px;
     }
     .container-table {
         text-align: center;

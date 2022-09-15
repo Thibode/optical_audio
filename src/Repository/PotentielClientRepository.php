@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\PotentielClient;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\EntityManager;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -39,6 +40,26 @@ class PotentielClientRepository extends ServiceEntityRepository
         }
     }
 
+
+    public function filter(string $client)
+    {
+        $client .= '%';
+        $qb = $this->createQueryBuilder('c')
+                    ->where('c.firstname LIKE :firstname')
+                    // ->orWhere('c.lastname LIKE :lastname')
+                    // ->orWhere('c.opticien.lastnam LIKE :opticien')
+                    // ->orWhere('c.phone LIKE :phone')
+                    ->setParameter('firstname', $client)
+                    // ->setParameter('lastname', $client)
+                    // ->setParameter('opticien', $client)
+                    // ->setParameter('phone', $client)
+                    ->orderBy('c.firstname', 'ASC');
+
+        $query = $qb->getQuery();
+        dump($query->getParameters());
+
+        return $query->execute();
+    }
 //    /**
 //     * @return PotentielClient[] Returns an array of PotentielClient objects
 //     */

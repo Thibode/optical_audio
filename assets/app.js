@@ -17,3 +17,21 @@ $("document").ready(function(){
         $("div.alert").slideUp(700);
     }, 3000 ); // 3 secs
 });
+
+//Recherche dans le tableau potentiel client
+// $(function(){
+//     $("#motCle").keypress(function(){
+//         $(this).val()
+//     })
+// });
+
+$(function(){
+    var path = $('#path').attr('data-path');
+    $("#motCle").keyup(function(){
+       $(this).val()
+       $.get(path, {filtre:$(this).val()}, function(data, status){
+        console.log("Data: " + data)
+        console.log("Status: " + status)
+      })
+    });
+})
