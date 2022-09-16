@@ -19,7 +19,7 @@
                 </thead>
                 {% for client in clients %}
                 <tbody>
-                    <tr>
+                    <tr id="clientLine">
                         <td>{{ client.lastname }}</td>
                         <td>{{ client.firstname }}</td>
                         <td>{{ client.email }}</td>
@@ -42,6 +42,5 @@
                     </tr>
                 </tbody>
                 {% endfor %}
-
             </table>
         </div>

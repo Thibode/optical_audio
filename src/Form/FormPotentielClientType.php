@@ -18,41 +18,55 @@ class FormPotentielClientType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('lastname', TextType::class)
-            ->add('firstname', TextType::class)
-            ->add('email', TextType::class)
-            ->add('phone', TextType::class)
+            ->add('lastname', TextType::class, [
+                'attr' => ['tabindex' => 1]
+            ])
+            ->add('firstname', TextType::class, [
+                'attr' => ['tabindex' => 2]
+            ])
+            ->add('email', TextType::class, [
+                'attr' => ['tabindex' => 3]
+            ])
+            ->add('phone', TextType::class, [
+                'attr' => ['tabindex' => 4]
+            ])
             ->add('opticien',EntityType::class, [
                 'class' => Opticiens::class,
+                'attr' => ['tabindex' => 6]
             ])
-            ->add('dateTest', DateType::class)
+            ->add('dateTest', DateType::class, [
+                'attr' => ['tabindex' => 5]
+            ])
             ->add('appareil', ChoiceType::class, [
                 'choices' => [
                     'OUI' => PotentielClient::OUI,
                     'NON' => PotentielClient::NON,
-                ]
+                ], 'attr' => ['tabindex' => 8]
             ])
             ->add('perteAuditive', ChoiceType::class, [
                 'choices' => [
                     'OUI' => PotentielClient::OUI,
                     'NON' => PotentielClient::NON,
                     'PRESBYACOUSIE' => PotentielClient::PRESBYACOUSIE,
-                ]
+                ],  'attr' => ['tabindex' => 7]
             ])
             ->add('deni', ChoiceType::class, [
                 'choices' => [
                     'OUI' => PotentielClient::OUI,
                     'NON' => PotentielClient::NON,
-                ]
+                ], 'attr' => ['tabindex' => 10]
             ])
             ->add('souhait', ChoiceType::class, [
                 'choices' => [
                     'OUI' => PotentielClient::OUI,
                     'NON' => PotentielClient::NON,
-                ]
+                ],  'attr' => ['tabindex' => 9]
             ])
             ->add('remarque', TextareaType::class, [
-                'attr' => ['cols' => 83]
+                'attr' => [
+                    'cols' => 50,
+                    'rows' => 5
+                ],
             ])
         ;
     }

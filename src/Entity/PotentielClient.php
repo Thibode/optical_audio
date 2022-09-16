@@ -27,7 +27,7 @@ class PotentielClient
     #[ORM\Column(length: 255)]
     private ?string $firstname = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     #[Encrypted]
     private ?string $email = null;
 
@@ -50,15 +50,14 @@ class PotentielClient
     #[Encrypted]
     private ?string $souhait = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     #[Encrypted]
     private ?string $remarque = null;
 
     #[ORM\ManyToOne(inversedBy: 'opticien')]
     private ?Opticiens $opticien = null;
 
-    #[ORM\Column(length: 255)]
-    #[Encrypted]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $phone = null;
 
     public function getId(): ?int
@@ -95,7 +94,7 @@ class PotentielClient
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
@@ -191,7 +190,7 @@ class PotentielClient
         return $this->phone;
     }
 
-    public function setPhone(string $phone): self
+    public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
 

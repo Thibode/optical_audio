@@ -19,19 +19,24 @@ $("document").ready(function(){
 });
 
 //Recherche dans le tableau potentiel client
-// $(function(){
-//     $("#motCle").keypress(function(){
-//         $(this).val()
-//     })
-// });
 
 $(function(){
     var path = $('#path').attr('data-path');
-    $("#motCle").keyup(function(){
-       $(this).val()
-       $.get(path, {filtre:$(this).val()}, function(data, status){
-        console.log("Data: " + data)
-        console.log("Status: " + status)
-      })
+
+        //Récupération de la valeur du champ de saisie
+        $("#motCle").keyup(function(){
+            $(this).val()
+        
+        //Filtrage par rapport à ce qu'il y a en base
+        $.get(path, {filtre:$(this).val()}, function(data, status){
+        "Data: " + data
+        "Status: " + status
+
+            //Condition pour l'affichage des données
+            if(status == 'success'){
+                $('#tableClient').html(data);
+            }
+
+        })
     });
 })

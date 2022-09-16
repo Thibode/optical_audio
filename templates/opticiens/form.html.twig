@@ -22,4 +22,14 @@
             </div>
         {{ form_end(formOpticien) }}
     </div>
+    <div class="RecapitulatifCollaborateur">
+    {% if opticiens != null %}
+        <h2 class="titreTable">Recapitulatif Collaborateur</h2>
+        {{ include('/opticiens/table.html.twig') }}
+    {% else %}
+
+        <h3 class="noTable" id="tableClient">Il n'y a pas encore de collaborateur</h3>
+
+    {% endif %}
+    </div>
 {% endblock %}

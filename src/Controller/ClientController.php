@@ -28,7 +28,7 @@ class ClientController extends AbstractController
     {
         $potentielClient = new PotentielClient;
         $form = $this->createForm(FormPotentielClientType::class, $potentielClient);
-        $clients = $doctrine->getRepository(PotentielClient::class)->findAll();
+        $clients = $doctrine->getRepository(PotentielClient::class)->findBy([], ['dateTest' => 'DESC'], 15);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
@@ -78,13 +78,10 @@ class ClientController extends AbstractController
         if($client){
             $em->remove($client);
             $em->flush();
-            $this->addFlash('info', 'Potentiel client supprimé !');
+            $this->addFlash('info', 'Potentiel client supprimé avec succès !');
             
             return $this->redirectToRoute('app_home');
         }
-
- 
-        return $this->redirectToRoute('app_home');
     }
 
     #[Route('/potentielClient/filter/', name:'app_home_filter')]
@@ -92,7 +89,7 @@ class ClientController extends AbstractController
 
         $filter = $request->get('filtre');
         $clients = $em->getRepository(PotentielClient::class)->filter($filter);
-        dd($clients);
+
         return $this->render('clients/table/table.html.twig', [
             'clients' => $clients
         ]);

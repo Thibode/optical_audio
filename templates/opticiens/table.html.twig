@@ -1,0 +1,26 @@
+<div id="opticien-table">
+            <table id="tableOpticien">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                {% for opticien in opticiens %}
+                <tbody>
+                    <tr>
+                        <td>{{ opticien.lastname }}</td>
+                        <td>{{ opticien.firstname }}</td>
+                        <td><a href="#" onclick="event.preventDefault(); confirm('Etes-vous sûr ?') &&
+                            document.getElementById('js-opticien-delete-form').submit();" class="btn-table"><img src="/images/icons8-trash-can-50.png" style="width: 40px; heigth: auto;" alt="Supprimer"></a>
+                            <form id="js-opticien-delete-form" action="{{ path('app_register_opticien_delete', {'id': opticien.id}) }}" method="DELETE" style="display:none">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="submit" value="Delete">
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
