@@ -18,6 +18,19 @@ $("document").ready(function(){
     }, 3000 ); // 3 secs
 });
 
+//Navigation menu 
+
+
+$(document).ready(function () {
+    $(".btn-menu").click(function () {
+      $(".container-nav-list").toggleClass("active");
+    });
+    $("ul li").click(function () {
+      $(this).siblings().removeClass("active");
+      $(this).toggleClass("active");
+    });
+  });
+
 //Recherche dans le tableau potentiel client
 
 $(function(){
