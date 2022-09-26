@@ -604,8 +604,15 @@ body{
     .firstPart{
         width: 40%;
     }
-}
+    .thirdPart{
+        width: 40%;
+    }
+    .container-table{
+        width: 100%;
+        overflow: scroll;
+    }
 
+}
 @media (min-width: 1250px) and (max-width: 1350px) {
     //Nav//
    .container-nav-list{
@@ -620,6 +627,13 @@ body{
     }
     .firstPart{
         width: 50%;
+    }
+    .thirdPart{
+        width: 50%;
+    }
+    .container-table{
+        width: 100%;
+        overflow: scroll;
     }
 
 }
@@ -703,6 +717,13 @@ body{
     .firstPart{
         width: 60%;
     }
+    .thirdPart{
+        width: 60%;
+    }
+    .container-table{
+        width: 100%;
+        overflow: scroll;
+    }
 }
 @media (max-width: 1055px) {
     .home{
@@ -728,5 +749,12 @@ body{
     }
     .firstPart{
         width: 70%;
+    }
+    .thirdPart{
+        width: 70%;
+    }
+    .container-table{
+        width: 100%;
+        overflow: scroll;
     }
 }
