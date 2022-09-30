@@ -31,7 +31,7 @@ class PotentielClient
     #[Encrypted]
     private ?string $email = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateTest = null;
 
     #[ORM\Column(length: 255)]
@@ -59,6 +59,9 @@ class PotentielClient
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $phone = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $dateRappel = null;
 
     public function getId(): ?int
     {
@@ -109,6 +112,18 @@ class PotentielClient
     public function setDateTest(\DateTimeInterface $dateTest): self
     {
         $this->dateTest = $dateTest;
+
+        return $this;
+    }
+
+    public function getDateRappel(): ?\DateTimeInterface
+    {
+        return $this->dateRappel;
+    }
+
+    public function setDateRappel(\DateTimeInterface $dateRappel): self
+    {
+        $this->dateRappel = $dateRappel;
 
         return $this;
     }
@@ -196,4 +211,5 @@ class PotentielClient
 
         return $this;
     }
+
 }

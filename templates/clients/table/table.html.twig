@@ -12,6 +12,7 @@
                         <th>Perte</th>
                         <th>Déni</th>
                         <th>Souhait</th>
+                        <th>Date rappel</th>
                         <th>Remarque</th>
                         <th></th>
                         <th></th>
@@ -30,6 +31,7 @@
                         <td>{{ client.perteAuditive }}</td>
                         <td>{{ client.deni }}</td>
                         <td>{{ client.souhait }}</td>
+                        <td>{{ client.dateRappel|date('d/m/Y') }}</td>
                         <td>{{ client.remarque }}</td>
                         <td><a href="#" onclick="event.preventDefault(); confirm('Etes-vous sûr ?') &&
                             document.getElementById('js-client-delete-form').submit();" class="btn-table"><img src="/images/icons8-trash-can-50.png" style="width: 40px; heigth: auto;" alt="Supprimer"></a>

@@ -42,8 +42,14 @@ class FormPotentielClientType extends AbstractType
                 'attr' => ['tabindex' => 5],
                 'widget' => 'single_text',
                 'required' => false,
-                'mapped' => false,
-                'html5' => true,
+                'html5' => true
+            ])
+            ->add('dateRappel', DateType::class, [
+                'label_format' => 'Date rappel : ',
+                'attr' => ['tabindex' => 11],
+                'widget' => 'single_text',
+                'required' => false,
+                'html5' => true
             ])
             ->add('appareil', ChoiceType::class, [
                 'label_format' => 'Appareillé(e) : ',

@@ -9,9 +9,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\PotentielClient;
 use App\Form\FormPotentielClientType;
-use APY\DataGridBundle\Grid\Grid;
 use Doctrine\Persistence\ManagerRegistry;
-use APY\DataGridBundle\Grid\Source\Entity;
+
 
 
 class ClientController extends AbstractController
