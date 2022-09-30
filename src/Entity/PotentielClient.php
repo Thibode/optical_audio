@@ -60,7 +60,7 @@ class PotentielClient
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $phone = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'date_rappel', type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateRappel = null;
 
     public function getId(): ?int
