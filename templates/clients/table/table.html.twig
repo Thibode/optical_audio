@@ -34,8 +34,8 @@
                         <td>{{ client.dateRappel|date('d/m/Y') }}</td>
                         <td>{{ client.remarque }}</td>
                         <td><a href="#" onclick="event.preventDefault(); confirm('Etes-vous sûr ?') &&
-                            document.getElementById('js-client-delete-form').submit();" class="btn-table"><img src="/images/icons8-trash-can-50.png" style="width: 40px; heigth: auto;" alt="Supprimer"></a>
-                            <form id="js-client-delete-form" action="{{ path('app_home_delete', {'id': client.id}) }}" method="DELETE" style="display:none">
+                            document.getElementById('js-client-delete-form-{{client.id}}}').submit();" class="btn-table"><img src="/images/icons8-trash-can-50.png" style="width: 40px; heigth: auto;" alt="Supprimer"></a>
+                            <form id="js-client-delete-form-{{client.id}}}" action="{{ path('app_home_delete', {'id': client.id}) }}" method="DELETE" style="display:none">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="submit" value="Delete">
                             </form>
