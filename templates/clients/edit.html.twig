@@ -17,6 +17,7 @@
                     {{ form_row(form.dateTest) }}
                     {{ form_row(form.perteAuditive) }}
                     {{ form_row(form.souhait) }} 
+                    {{ form_row(form.dateRappel) }} 
                 </div>
                 <div class="col-form-right">
                     <div>
@@ -33,7 +34,8 @@
                 </div>
             </div>
             <div class="autreForm">
-                {{ form_row(form.remarque) }}
+                {{ form_label(form.remarque, 'Remarque :') }} </br>
+                {{ form_widget(form.remarque) }}
             </div>
             <div class="btn_s fill">
                 <input type="submit" value="Modifier informations" class="btn" formnovalidate>

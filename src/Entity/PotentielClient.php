@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PotentielClientRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Ambta\DoctrineEncryptBundle\Configuration\Encrypted;
@@ -62,6 +64,15 @@ class PotentielClient
 
     #[ORM\Column(name:'date_rappel', type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateRappel = null;
+
+    #[ORM\OneToMany(mappedBy: 'client', targetEntity: UserNotification::class)]
+    private Collection $userNotifications;
+
+    public function __construct()
+    {
+        $this->notificationUsers = new ArrayCollection();
+        $this->userNotifications = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -212,4 +223,33 @@ class PotentielClient
         return $this;
     }
 
+    /**
+     * @return Collection<int, UserNotification>
+     */
+    public function getUserNotifications(): Collection
+    {
+        return $this->userNotifications;
+    }
+
+    public function addUserNotification(UserNotification $userNotification): self
+    {
+        if (!$this->userNotifications->contains($userNotification)) {
+            $this->userNotifications->add($userNotification);
+            $userNotification->setClient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserNotification(UserNotification $userNotification): self
+    {
+        if ($this->userNotifications->removeElement($userNotification)) {
+            // set the owning side to null (unless already changed)
+            if ($userNotification->getClient() === $this) {
+                $userNotification->setClient(null);
+            }
+        }
+
+        return $this;
+    }
 }
