@@ -8,7 +8,7 @@ networks:
       name: pocker-proxy
 
 volumes:
-  data-postgresql:
+  data-sql:
 
 services:
   php:
@@ -38,21 +38,21 @@ services:
       - pocker
       - default
   sql:
-    image: postgres:${POSTGRES_VERSION:-14.2}
+    image: mariadb:10.5
     environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: sasql
-      POSTGRES_DB: admin
+      MYSQL_ROOT_PASSWORD: sasql
+      MYSQL_DATABASE: admin
     volumes:
-      - 'data-postgresql:/var/lib/postgresql/data'
-  phppgadmin:
-    image: bitnami/phppgadmin:latest
+      - 'data-sql:/var/lib/mysql'
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.9
     depends_on:
       - sql
     environment:
-      DATABASE_HOST: sql
-      VIRTUAL_HOST: pgadmin.opticalaudio.dev.test
+      PMA_HOST: sql
+      PMA_ABSOLUTE_URI: http://phpmyadmin.opticalcenter.dev.test
+      VIRTUAL_HOST: phpmyadmin.opticalcenter.*
+      HTTPS_METHOD: noredirect
     networks:
       - pocker
       - default
-
